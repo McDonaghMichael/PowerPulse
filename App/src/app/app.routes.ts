@@ -18,15 +18,11 @@ export const routes: Routes = [
     loadComponent: () => import('./library/library/library.page').then( m => m.LibraryPage)
   },
   {
-    path: 'library/strength-training',
-    loadComponent: () => import('./library/strength-training/strength-training.page').then( m => m.StrengthTrainingPage)
+    path: 'library/details',
+    loadComponent: () => import('./library/workout-details/workout-details.page').then( m => m.WorkoutDetailsPage)
   },
   {
-    path: 'library/cardiovascular',
-    loadComponent: () => import('./library/cardiovascular/cardiovascular.page').then( m => m.CardiovascularPage)
-  },
-  {
-    path: 'library/flexibility',
-    loadComponent: () => import('./library/flexibility/flexibility.page').then( m => m.FlexibilityPage)
+    path: 'library/list',
+    loadComponent: () => import('./library/library-workout-list/library-workout-list.page').then( m => m.LibraryWorkoutListPage)
   },
 ];

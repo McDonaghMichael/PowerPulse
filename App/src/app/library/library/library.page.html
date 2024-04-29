@@ -1,13 +1,62 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Library</ion-title>
-  </ion-toolbar>
+  <ion-content [fullscreen]="true">
+    <ion-text class="header">
+      <h1>Workout Library</h1>
+    </ion-text>
+    <ion-grid [fixed]="true">
+      <ion-row>
+        <ion-col>
+          <ion-img
+            src="assets/images/muscle-removebg-preview.png"
+            alt="Muscle"
+          ></ion-img>
+          <ion-text>
+            <p>
+              Explore our range of Strength building exercises to grow your
+              muscles like never before
+            </p>
+          </ion-text>
+          <ion-button
+            class="exercise-selector-btn"
+            expand="block"
+            (click)="navigateWorkoutList(0)"
+            >Strength</ion-button
+          >
+        </ion-col>
+        <ion-col>
+          <ion-img
+            src="assets/images/cardio-removebg-preview.png"
+            alt="Cardio"
+          ></ion-img>
+          <ion-text>
+            <p>
+              Dive deep into our Cardiovascular enchancing workouts to perform
+              at your best
+            </p>
+          </ion-text>
+          <ion-button
+            class="exercise-selector-btn"
+            expand="block"
+            (click)="navigateWorkoutList(1)"
+            >Cardiovascular</ion-button
+          >
+        </ion-col>
+        <ion-col
+          ><ion-img
+            src="assets/images/heart-removebg-preview.png"
+            alt="Heart"
+          ></ion-img>
+          <ion-text>
+            <p>Enhance your Flexbility to [put smth else here]</p>
+          </ion-text>
+          <ion-button
+            class="exercise-selector-btn"
+            expand="block"
+            (click)="navigateWorkoutList(2)"
+            >Flexbility</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Library</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
