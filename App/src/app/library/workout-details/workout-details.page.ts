@@ -21,4 +21,8 @@ export class WorkoutDetailsPage implements OnInit {
   ngOnInit() {
     this.workout = history.state.workout;
   }
+
+  back(){
+    history.back();
+  }
 }

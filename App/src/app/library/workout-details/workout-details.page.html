@@ -16,14 +16,14 @@
       <ion-col>
         <ion-card>
           <ion-card-content>
-            <p>Description: {{ workout.description }}</p>
+            <p>{{ workout.description }}</p>
             <p>Sets: {{ workout.sets }}</p>
             <p>Reps: {{ workout.reps }}</p>
             <p>Rest: {{ workout.rest }}</p>
-            <!-- Add more details as needed -->
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-button (click)="back()">Back</ion-button>
 </ion-content>
