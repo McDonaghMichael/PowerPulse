@@ -11,10 +11,10 @@ Welcome to PowerPulse, your all-in-one fitness app! PowerPulse is designed to he
 To get started with PowerPulse, follow these steps:
 
 1. Clone this repository to your local machine:
-```git clone https://github.com/McDonaghMichael/PowerPulse-Angular-Application.git```
+```git clone https://github.com/McDonaghMichael/PowerPulse.git```
 
 2. Navigate to the project directory:
-```cd PowerPulse-Angular-Application/App```
+```cd PowerPulsen/App```
 
 4. Install the necessary dependencies:
 ```npm install```
