@@ -37,4 +37,12 @@ export const routes: Routes = [
     path: 'nutrition',
     loadComponent: () => import('./nutrition/nutrition.page').then( m => m.NutritionPage)
   },
+  {
+    path: 'blog',
+    loadComponent: () => import('./blog/blog/blog.page').then( m => m.BlogPage)
+  },
+  {
+    path: 'blog/view',
+    loadComponent: () => import('./blog/view-blog/view-blog.page').then( m => m.ViewBlogPage)
+  },
 ];

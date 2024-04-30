@@ -1,11 +1,12 @@
 .exercise-selector-btn {
-    --background: #d6be6d;
+    --background: var(--ion-color-secondary);
 }
 
-ion-content{
-    --padding-top: 100px;
-    }
 
-.headder {
-    --text-align: center;
+
+
+ion-col{
+    width: 100%;
+    height: 75%;
 }
+

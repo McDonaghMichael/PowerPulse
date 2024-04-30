@@ -1,13 +1,57 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>nutrition</ion-title>
-  </ion-toolbar>
+  <ion-content [fullscreen]="true">
+    <ion-text>
+      <h1 class="page-title">Nutrition</h1>
+    </ion-text>
+    <ion-grid [fixed]="true">
+      <ion-row class="ion-align-items-start">
+        <ion-col>
+          <ion-img
+            src="assets/images/pages/nutrition/nutrisystem.jpg"
+            alt="Nutrisystem"
+          ></ion-img>
+          <ion-text>
+            <p>
+              Explore our range of nutrition plans tailored for weight loss and portion control, following the Nutrisystem approach.
+            </p>
+          </ion-text>
+          <ion-button
+            class="nutrition-selector-btn"
+            expand="block"
+            >Nutrisystem</ion-button
+          >
+        </ion-col>
+        <ion-col>
+          <ion-img
+            src="assets/images/pages/nutrition/mediterranean.jpg"
+            alt="Mediterranean Diet"
+          ></ion-img>
+          <ion-text>
+            <p>
+              Dive into the heart-healthy Mediterranean diet, rich in fruits, vegetables, whole grains, and healthy fats.
+            </p>
+          </ion-text>
+          <ion-button
+            class="nutrition-selector-btn"
+            expand="block"
+            >Mediterranean Diet</ion-button
+          >
+        </ion-col>
+        <ion-col>
+          <ion-img
+            src="assets/images/pages/nutrition/vegan.jpeg"
+            alt="Vegan Diet"
+          ></ion-img>
+          <ion-text>
+            <p>Embrace a plant-based lifestyle with our vegan diet plan, packed with nutrient-rich fruits, vegetables, grains, and legumes.</p>
+          </ion-text>
+          <ion-button
+            class="nutrition-selector-btn"
+            expand="block"
+            >Vegan Diet</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">nutrition</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>

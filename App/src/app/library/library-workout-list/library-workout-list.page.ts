@@ -15,7 +15,8 @@ import { Router } from '@angular/router';
 export class LibraryWorkoutListPage implements OnInit {
   workouts: any;
   type: any;
-
+  workoutType: any;
+  
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
@@ -28,12 +29,17 @@ export class LibraryWorkoutListPage implements OnInit {
       switch(this.type){
         case 0:
           this.workouts = data.workouts.strength;
+          this.workoutType = "Strength";
           break;
           case 1:
             this.workouts = data.workouts.cardiovascular;
+          this.workoutType = "Cardiovascular";
+
             break;
             case 2:
               this.workouts = data.workouts.flexibility;
+          this.workoutType = "Flexibility";
+
               break;
       }
       

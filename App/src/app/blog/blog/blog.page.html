@@ -1,0 +1,21 @@
+<ion-content [fullscreen]="true">
+  <ion-text>
+    <h1 class="page-title"> Fitness Blogs </h1>
+  </ion-text>
+  <ion-grid>
+    <ion-row *ngFor="let blog of blogs">
+      <ion-col>
+        <ion-card>
+          <img [src]="blog.thumbnail_src" alt="Thumbnail Image">
+          <ion-card-header>
+            <ion-card-title>{{ blog.snippet }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ blog.author }} | {{ blog.post_date }}</p>
+            <ion-button expand="block" (click)="readBlog(blog)">Read</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,7 +1,9 @@
 
 
 <ion-content [fullscreen]="true">
-
+  <ion-text>
+  <h1 class="page-title">Workout Builder</h1>
+</ion-text>
   <ion-list class="ion-list">
     <ion-item-group *ngFor="let muscleGroup of availableWorkouts | keyvalue">
       <ion-item-divider (click)="toggleGroup(+muscleGroup.key)" class="muscle-group-header">
@@ -12,8 +14,8 @@
       <ng-container *ngIf="isGroupShown(+muscleGroup.key)">
         <ion-item *ngFor="let workout of muscleGroup.value">
           {{ workout.name }}
-          <ion-button slot="end" (click)="exploreWorkout(workout)">Explore</ion-button>
-          <ion-button slot="end" (click)="addWorkout(workout)">Add</ion-button>
+          <ion-button class="workout-option-button" slot="end" (click)="exploreWorkout(workout)">Explore</ion-button>
+          <ion-button class="workout-option-button" slot="end" (click)="addWorkout(workout)">Add</ion-button>
         </ion-item>
       </ng-container>
     </ion-item-group>
@@ -25,7 +27,7 @@
   <ion-list>
     <ion-item *ngFor="let selectedWorkout of selectedWorkouts">
       <ion-label>{{ selectedWorkout.name }}</ion-label>
-      <ion-button slot="end" (click)="exploreWorkout(selectedWorkout)">Explore</ion-button>
+      <ion-button class="workout-option-button" slot="end" (click)="exploreWorkout(selectedWorkout)">Explore</ion-button>
       <ion-item lines="none" class="input-item">
         <ion-label position="stacked" class="input-label">Reps</ion-label>
         <ion-input type="number" [(ngModel)]="selectedWorkout.reps" class="small-input" placeholder="10"></ion-input>
@@ -41,7 +43,7 @@
         <ion-input type="number" [(ngModel)]="selectedWorkout.break" class="small-input" placeholder="1"></ion-input>
       </ion-item>
     
-      <ion-button slot="end" (click)="removeWorkout(selectedWorkout)" fill="clear">Remove</ion-button>
+      <ion-button class="workout-option-button" slot="end" (click)="removeWorkout(selectedWorkout)" fill="clear">Remove</ion-button>
     </ion-item>
     
   </ion-list>

@@ -26,7 +26,7 @@
     color: rgb(242, 242, 242);
     margin-right: 25px;
     float: right;
-    background-color: #80baf0;
+    background-color: var(--ion-color-tertiary);
   }
   
   .input-label {
@@ -39,3 +39,6 @@
     width: 50px;
   }
   
+  ion-button {
+    background-color: var(--ion-color-tertiary) !important;
+  }

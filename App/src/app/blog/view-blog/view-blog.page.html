@@ -2,23 +2,21 @@
 
 <ion-content [fullscreen]="true">
   <ion-text>
-    <h1 class="page-title"> {{ workout.name }}</h1>
+    <h1 class="page-title"> {{ blog.snippet }}</h1>
   </ion-text>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ workout.name }}</ion-title>
+      <img [src]="blog.thumbnail_src" alt="Thumbnail Image">
     </ion-toolbar>
   </ion-header>
 
   <ion-grid>
     <ion-row>
       <ion-col>
+        <p>Author: {{ blog.author }}</p>
         <ion-card>
           <ion-card-content>
-            <p>{{ workout.description }}</p>
-            <p>Sets: {{ workout.sets }}</p>
-            <p>Reps: {{ workout.reps }}</p>
-            <p>Rest: {{ workout.rest }}</p>
+            <p>{{ blog.text }}</p>
           </ion-card-content>
         </ion-card>
       </ion-col>

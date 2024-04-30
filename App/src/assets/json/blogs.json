@@ -1,0 +1,77 @@
+{
+    "blogs": [
+      {
+        "id": 1,
+        "thumbnail_src": "https://media.post.rvohealth.io/wp-content/uploads/2021/10/HL-Welcome_to_Healthline_Fitness-Letter_from_the_Editor-Thumbnail-732x549.png",
+        "author": "FitnessFanatic123",
+        "snippet": "Check out these 5 tips for a better workout routine!",
+        "post_date": "2024-04-28",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget commodo nisi, vel efficitur nulla. Nulla et lorem et turpis ultrices sollicitudin.",
+        "comments": [
+          {
+            "username": "FitGirl21",
+            "comment_text": "Great tips! I'll definitely try them out."
+          },
+          {
+            "username": "MuscleMan88",
+            "comment_text": "I've been struggling with my routine lately, thanks for the advice!"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "thumbnail_src": "https://img.freepik.com/free-photo/young-fitness-man-studio_7502-5008.jpg",
+        "author": "GymGuru99",
+        "snippet": "The importance of proper nutrition in your fitness journey.",
+        "post_date": "2024-04-25",
+        "text": "Integer vestibulum enim nec euismod malesuada. Nam laoreet justo sit amet odio interdum, at aliquet elit viverra. Fusce id gravida nulla.",
+        "comments": [
+          {
+            "username": "HealthyEater22",
+            "comment_text": "Nutrition is key! Thanks for sharing."
+          },
+          {
+            "username": "FitnessMom",
+            "comment_text": "This is something I struggle with. Any tips for meal planning?"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "thumbnail_src": "https://img.freepik.com/free-photo/young-fitness-man-studio_7502-5008.jpg",
+        "author": "GymGuru99",
+        "snippet": "The importance of proper nutrition in your fitness journey.",
+        "post_date": "2024-04-25",
+        "text": "Integer vestibulum enim nec euismod malesuada. Nam laoreet justo sit amet odio interdum, at aliquet elit viverra. Fusce id gravida nulla.",
+        "comments": [
+          {
+            "username": "HealthyEater22",
+            "comment_text": "Nutrition is key! Thanks for sharing."
+          },
+          {
+            "username": "FitnessMom",
+            "comment_text": "This is something I struggle with. Any tips for meal planning?"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "thumbnail_src": "https://img.freepik.com/free-photo/young-fitness-man-studio_7502-5008.jpg",
+        "author": "GymGuru99",
+        "snippet": "The importance of proper nutrition in your fitness journey.",
+        "post_date": "2024-04-25",
+        "text": "Integer vestibulum enim nec euismod malesuada. Nam laoreet justo sit amet odio interdum, at aliquet elit viverra. Fusce id gravida nulla.",
+        "comments": [
+          {
+            "username": "HealthyEater22",
+            "comment_text": "Nutrition is key! Thanks for sharing."
+          },
+          {
+            "username": "FitnessMom",
+            "comment_text": "This is something I struggle with. Any tips for meal planning?"
+          }
+        ]
+      }
+    ]
+  }
+  
