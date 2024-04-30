@@ -14,7 +14,7 @@ To get started with PowerPulse, follow these steps:
 ```git clone https://github.com/McDonaghMichael/PowerPulse-Angular-Application.git```
 
 2. Navigate to the project directory:
-```cd powerpulse-fitness-app```
+```cd PowerPulse-Angular-Application/App```
 
 4. Install the necessary dependencies:
 ```npm install```
