@@ -28,6 +28,6 @@ To get started with PowerPulse, follow these steps:
 - **Angular:** Frontend framework for building the user interface.
 - **HTML/CSS:** Markup and styling languages for structuring and designing the app.
 - **TypeScript:** Superset of JavaScript used for developing Angular applications.
-- 
+  
 ## Contributing
 Contributions to PowerPulse are welcome!
