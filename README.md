@@ -10,9 +10,7 @@ Welcome to PowerPulse, your all-in-one fitness app! PowerPulse is designed to he
 ## Getting Started
 To get started with PowerPulse, follow these steps:
 
-Clone this repository to your local machine:
-bash
-Copy code
+1. Clone this repository to your local machine:
 ```git clone https://github.com/your-username/powerpulse-fitness-app.git```
 Navigate to the project directory:
 bash
