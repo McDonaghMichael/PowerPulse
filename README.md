@@ -21,7 +21,8 @@ To get started with PowerPulse, follow these steps:
 
 5. Run the app:
 ```ionic serve```
-- This will start a development server. Open your browser and navigate to ```http://localhost:8100``` to view the app.
+
+This will start a development server. Open your browser and navigate to ```http://localhost:8100``` to view the app.
 
 ## Technologies Used
 - **Ionic Framework:** A UI toolkit for building cross-platform apps with web technologies.
