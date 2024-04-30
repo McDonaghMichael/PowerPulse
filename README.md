@@ -30,4 +30,4 @@ To get started with PowerPulse, follow these steps:
 - **TypeScript:** Superset of JavaScript used for developing Angular applications.
 - 
 ## Contributing
-Contributions to PowerPulse are welcome! If you'd like to contribute, please follow these guidelines:
+Contributions to PowerPulse are welcome!
