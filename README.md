@@ -13,7 +13,7 @@ To get started with PowerPulse, follow these steps:
 Clone this repository to your local machine:
 bash
 Copy code
-git clone https://github.com/your-username/powerpulse-fitness-app.git
+```git clone https://github.com/your-username/powerpulse-fitness-app.git```
 Navigate to the project directory:
 bash
 Copy code
