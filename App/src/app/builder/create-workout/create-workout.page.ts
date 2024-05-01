@@ -25,9 +25,7 @@ const MUSCLE_GROUP_IDS = {
   CHEST: 6,
   BACK: 7,
   SHOULDERS: 8,
-  ABS: 9,
-  CARDIO: 10,
-  FLEXIBILITY: 11
+  ABS: 9
 };
 
 
@@ -113,10 +111,6 @@ isGroupShown(group: number): boolean {
         return 'Shoulders';
       case MUSCLE_GROUP_IDS.ABS:
         return 'Abs';
-      case MUSCLE_GROUP_IDS.CARDIO:
-        return 'Cardio';
-      case MUSCLE_GROUP_IDS.FLEXIBILITY:
-        return 'Flexibility';
       default:
         return 'Unknown';
     }

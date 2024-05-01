@@ -13,9 +13,11 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <p>Author: {{ blog.author }}</p>
+        <img [src]="blog.thumbnail_src" alt="Thumbnail Image">
+        
         <ion-card>
           <ion-card-content>
+            <p>Author: {{ blog.author }}</p>
             <p>{{ blog.text }}</p>
           </ion-card-content>
         </ion-card>
