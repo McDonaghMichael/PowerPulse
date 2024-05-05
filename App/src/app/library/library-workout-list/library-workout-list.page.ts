@@ -49,5 +49,7 @@ export class LibraryWorkoutListPage implements OnInit {
   exploreWorkout(workout: any) {
     this.router.navigate(['/library/details'], { state: { workout } });
   }
-
+  back(){
+    history.back();
+  }
 }

@@ -6,11 +6,10 @@ import { IonThumbnail, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, Ion
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink, featherHome} from '@ng-icons/feather-icons';
-import { heroUsers } from '@ng-icons/heroicons/outline';
+
 
 
 import { Share } from '@capacitor/share';
-import { BrowserModule } from '@angular/platform-browser';
 
 const PAGES = {
   LIBRARY: 0,

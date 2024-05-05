@@ -6,8 +6,8 @@
   </ion-text>
 
   <ion-grid>
-    <ion-row *ngFor="let workout of workouts">
-      <ion-col>
+    <ion-row >
+      <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4" *ngFor="let workout of workouts">
         <ion-card>
           <ion-card-header>
             <ion-card-title>{{ workout.name }}</ion-card-title>
@@ -23,4 +23,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-button class="back-button" (click)="back()">Back</ion-button>
 </ion-content>

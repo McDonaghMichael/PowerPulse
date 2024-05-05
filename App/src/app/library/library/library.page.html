@@ -5,57 +5,79 @@
     </ion-text>
     <ion-grid [fixed]="true">
       <ion-row>
-        <ion-col offset-lg="1" size-xs="12" size-sm="4" size-lg="3">
-        
-          <ion-img
+        <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+          <ion-card>
+            <ion-img
             src="assets/images/muscle-removebg-preview.png"
             alt="Muscle"
           ></ion-img>
-          <ion-text>
-            <p>
-              Explore our range of Strength building exercises to grow your
-              muscles like never before
-            </p>
-          </ion-text>
-          <ion-button
+            <ion-card-header>
+              <ion-card-title>Strength</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                Explore our range of Strength building exercises to grow your
+                muscles like never before
+              </p>
+              <ion-button
             class="exercise-selector-btn"
             expand="block"
             (click)="navigateWorkoutList(0)"
-            >Strength</ion-button
-          >
+            >Explore</ion-button>
+            </ion-card-content>
+          </ion-card>
+
         </ion-col>
-<ion-col offset-lg="1" size-xs="12" size-sm="4" size-lg="3">
-          <ion-img
+        <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+
+          <ion-card>
+            <ion-img
             src="assets/images/cardio-removebg-preview.png"
             alt="Cardio"
           ></ion-img>
-          <ion-text>
-            <p>
-              Dive deep into our Cardiovascular enchancing workouts to perform
-              at your best
-            </p>
-          </ion-text>
-          <ion-button
+            <ion-card-header>
+              <ion-card-title>Cardiovascular</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                Dive deep into our Cardiovascular enchancing workouts to perform
+                at your best
+              </p>
+              <ion-button
             class="exercise-selector-btn"
             expand="block"
             (click)="navigateWorkoutList(1)"
-            >Cardiovascular</ion-button
+            >Explore</ion-button
           >
+            </ion-card-content>
+          </ion-card>
+
+          
         </ion-col>
-      <ion-col offset-lg="1" size-xs="12" size-sm="4" size-lg="3">
-          <ion-img
+        <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+
+          <ion-card>
+            <ion-img
             src="assets/images/heart-removebg-preview.png"
             alt="Heart"
           ></ion-img>
-          <ion-text>
-            <p>Enhance your Flexbility to perform at your very best, reduce injury and increase recovery</p>
-          </ion-text>
-          <ion-button
+            <ion-card-header>
+              <ion-card-title>Flexbility</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>Enhance your Flexbility to perform at your very best, reduce injury and increase recovery</p>
+              <ion-button
             class="exercise-selector-btn"
             expand="block"
             (click)="navigateWorkoutList(2)"
-            >Flexbility</ion-button
+            >Explore</ion-button
           >
+            </ion-card-content>
+          </ion-card>
+
+
+
+     
         </ion-col>
       </ion-row>
     </ion-grid>

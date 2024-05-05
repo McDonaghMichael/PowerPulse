@@ -12,13 +12,19 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col offset-lg="3" size-lg="6" size-md="12">
         <ion-card>
           <ion-card-content>
-            <p>{{ workout.description }}</p>
-            <p>Sets: {{ workout.sets }}</p>
-            <p>Reps: {{ workout.reps }}</p>
-            <p>Rest: {{ workout.rest }}</p>
+            <img [src]="workout.img">
+            <h3>{{ workout.description }}</h3>
+            <div class="cont">
+              <span class="x">Sets:</span> <span class="y"> {{ workout.sets }}</span>
+            <br>
+            <span class="x">Reps:</span> <span class="y"> {{ workout.reps }}</span>
+            <br>
+            <span class="x">Rest:</span> <span class="y"> {{ workout.rest }}</span>
+            </div>
+            
           </ion-card-content>
         </ion-card>
       </ion-col>
