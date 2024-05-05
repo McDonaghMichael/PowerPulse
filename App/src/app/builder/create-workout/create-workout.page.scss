@@ -1,10 +1,8 @@
 .small-input {
-    max-width: 80px;
+    width: 45%;
   }
   
-  .input-item {
-    max-width: 160px;
-  }
+ 
   
 .muscle-group-header {
     font-size: 18px;
@@ -19,19 +17,20 @@
  
   .selected-workouts-title {
     text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: var(--ion-color-primary);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 0px;
   }
   
 
-  .generate-pdf-button {
-    color: rgb(242, 242, 242);
-    margin-right: 25px;
-    float: right;
-    background-color: var(--ion-color-tertiary);
-  }
-  
+ 
   .input-label {
     font-size: 14px;
-    text-align: center;
+    text-align: left;
+    font-weight: lighter;
   }
   
 
@@ -42,3 +41,7 @@
   ion-button {
     background-color: var(--ion-color-tertiary) !important;
   }
+
+.selected-workout-label {
+  font-weight: bolder;
+}

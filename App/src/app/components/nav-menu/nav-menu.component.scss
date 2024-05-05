@@ -6,10 +6,51 @@
 }
 
 .nav-link {
-    color: rgb(109, 109, 109);
-    font-size: 16px;
+    color: rgb(61, 60, 60);
+}
+.nav-link:hover {
+    color: rgb(150, 145, 145);
+    text-decoration: underline;
 }
 
-.nav-link:hover {
-    color: rgb(78, 76, 76);
+
+ng-icon {
+    color: rgb(109, 109, 109);
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.facebook:hover {
+    color: blue;
+}
+
+.instagram:hover {
+    color: rgb(238, 91, 189);
+}
+
+.twitter:hover {
+    color: lightblue;
+}
+.youtube:hover {
+    color: red;
+}
+
+.mail:hover {
+    color: rgb(190, 161, 62);
+}
+
+.link:hover {
+    color: purple;
+}
+
+.icons {
+    margin-top: 15px;
+}
+
+.nav-toolbar {
+    width: 100%;
+}
+
+.home-icon {
+    float: right;
 }

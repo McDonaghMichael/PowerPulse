@@ -4,18 +4,11 @@
   <ion-text>
     <h1 class="page-title"> {{ blog.snippet }}</h1>
   </ion-text>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <img [src]="blog.thumbnail_src" alt="Thumbnail Image">
-    </ion-toolbar>
-  </ion-header>
-
   <ion-grid>
     <ion-row>
       <ion-col>
         <img [src]="blog.thumbnail_src" alt="Thumbnail Image">
-        
-        <ion-card>
+       <ion-card>
           <ion-card-content>
             <p>Author: {{ blog.author }}</p>
             <p>{{ blog.text }}</p>

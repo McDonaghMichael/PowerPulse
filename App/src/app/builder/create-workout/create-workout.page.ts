@@ -1,20 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonListHeader, IonSelectOption, IonItemDivider, IonItemGroup, IonIcon} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonListHeader, IonSelectOption, IonItemDivider, IonItemGroup, IonIcon, IonThumbnail, ModalController} from '@ionic/angular/standalone';
 import { HttpClient } from '@angular/common/http';
-import * as pdfMake from 'pdfmake/build/pdfmake';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-import { TDocumentDefinitions } from 'pdfmake/interfaces';
 import { Router } from '@angular/router';
-const fonts = {
-  Roboto: {
-    normal: 'assets/fonts/Roboto-Regular.ttf',
-    bold: 'assets/fonts/Roboto-Medium.ttf',
-    italics: 'assets/fonts/Roboto-Italic.ttf',
-    bolditalics: 'assets/fonts/Roboto-MediumItalic.ttf'
-  }
-};
+import { SaveWorkoutComponent } from 'src/app/components/save-workout/save-workout.component';
 
 const MUSCLE_GROUP_IDS = {
   BICEPS: 1,
@@ -34,7 +24,7 @@ const MUSCLE_GROUP_IDS = {
   templateUrl: './create-workout.page.html',
   styleUrls: ['./create-workout.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonListHeader, IonSelectOption, IonItemDivider, IonIcon, IonItemGroup]
+  imports: [SaveWorkoutComponent, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonListHeader, IonThumbnail, IonSelectOption, IonItemDivider, IonIcon, IonItemGroup]
 
 })
 export class CreateWorkoutPage implements OnInit {
@@ -44,7 +34,7 @@ export class CreateWorkoutPage implements OnInit {
   expandedGroups: number[] = [];
   currentGroup: number;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private modalController: ModalController) {
     this.currentGroup = 0;
   }
 
@@ -61,8 +51,6 @@ export class CreateWorkoutPage implements OnInit {
   }
 
   
-
-// Inside your component class
 toggleGroup(group: number) {
   if (this.isGroupShown(group)) {
     this.currentGroup = 0;
@@ -115,29 +103,42 @@ isGroupShown(group: number): boolean {
         return 'Unknown';
     }
   }
-  generatePDF() {
-    const docDefinition: TDocumentDefinitions = {
-      content: [
-        { text: 'Selected Workouts', style: 'header' },
-        { text: '------------------------', style: 'subheader' },
-        { ul: this.selectedWorkouts.map(workout => workout.name) }
-      ],
-      styles: {
-        header: {
-          fontSize: 18,
-          bold: true,
-          alignment: 'center',
-          margin: [0, 0, 0, 10]
-        },
-        subheader: {
-          fontSize: 14,
-          bold: true,
-          margin: [0, 5, 0, 5]
-        }
-      }
-    };
-    pdfMake.createPdf(docDefinition).download('selected_workouts.pdf');
+
+  getMuscleGroupIcon(muscleGroupId: number): string {
+    switch (muscleGroupId) {
+      case MUSCLE_GROUP_IDS.BICEPS:
+        return 'assets/images/pages/builder/bicep.png';
+        case MUSCLE_GROUP_IDS.TRICEPS:
+          return 'assets/images/pages/builder/tricep.png';
+        case MUSCLE_GROUP_IDS.QUADRICEPS:
+          return 'assets/images/pages/builder/quads.png';
+        case MUSCLE_GROUP_IDS.HAMSTRINGS:
+          return 'assets/images/pages/builder/hamstring.png';
+        case MUSCLE_GROUP_IDS.GLUTES:
+          return 'assets/images/pages/builder/glutes.png';
+        case MUSCLE_GROUP_IDS.CHEST:
+          return 'assets/images/pages/builder/chest.png';
+        case MUSCLE_GROUP_IDS.BACK:
+          return 'assets/images/pages/builder/back.png';
+        case MUSCLE_GROUP_IDS.SHOULDERS:
+          return 'assets/images/pages/builder/shoulder.png';
+        case MUSCLE_GROUP_IDS.ABS:
+          return 'assets/images/pages/builder/abs.png';
+      default:
+        return 'assets/images/pages/builder/abs.png';
+    }
   }
+
+
+  async saveWorkout() {
+    const modal = await this.modalController.create({
+      component: SaveWorkoutComponent,
+      componentProps: {
+        selectedWorkouts: this.selectedWorkouts
+      }
+    });
+    return await modal.present();
+  }  
   
   
 }

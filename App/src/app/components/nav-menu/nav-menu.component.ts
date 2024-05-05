@@ -1,10 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonImg } from '@ionic/angular';
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup } from '@ionic/angular/standalone';
+import { IonThumbnail, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink, featherHome} from '@ng-icons/feather-icons';
+import { heroUsers } from '@ng-icons/heroicons/outline';
 
+
+import { Share } from '@capacitor/share';
+import { BrowserModule } from '@angular/platform-browser';
 
 const PAGES = {
   LIBRARY: 0,
@@ -20,9 +26,13 @@ const PAGES = {
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.scss'],
-  imports: [ IonMenu, IonHeader, RouterModule, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup],
-  standalone: true
+  imports: [ IonThumbnail, NgIconComponent, IonMenu, IonHeader, RouterModule, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup],
+  standalone: true,
+  providers: [provideIcons({ featherHome, featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink })],
 })
+
+
+
 export class NavMenuComponent  implements OnInit {
 
   quotes: any;
@@ -36,6 +46,15 @@ export class NavMenuComponent  implements OnInit {
   navigatePage(page: string): void {
     this.router.navigate([page]);
   
+  }
+
+  async shareApp(type: string) {
+    await Share.share({
+      title: 'Share with ' + type,
+      text: 'Sharing helps alot',
+      url: 'https://powerpulse.app',
+      dialogTitle: 'Share with everyone',
+    });
   }
 
 
