@@ -3,55 +3,92 @@
     <ion-text>
       <h1 class="page-title">Nutrition</h1>
     </ion-text>
-    <ion-grid [fixed]="true">
-      <ion-row class="ion-align-items-start">
-        <ion-col>
-          <ion-img
-            src="assets/images/pages/nutrition/nutrisystem.jpg"
-            alt="Nutrisystem"
+    <ion-grid [fixed]="true" *ngIf="!hideIntroduction">
+      <ion-row>
+        <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="4">
+    <ion-card>
+      <ion-img
+      src="assets/images/pages/nutrition/michael.png"
+      alt="Cardio"
+    ></ion-img>
+      
+      <ion-card-content>
+        <p>{{ currentText }}</p>
+        <ion-button
+      class="skip-introduction-button"
+      expand="block">Explore</ion-button>
+      </ion-card-content>
+    </ion-card>
+    </ion-col>
+    </ion-row></ion-grid>
+
+    <ion-grid [fixed]="true" *ngIf="!hideJourney">
+      <ion-row>
+        <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="5">
+          <ion-card class="ion-card-primary">
+          <ion-card-header>
+            <ion-card-title>Step 1: What is your goal?</ion-card-title>
+          </ion-card-header>
+            <ion-card-content>
+              <p>{{ headerText }}</p>
+            </ion-card-content>
+          </ion-card>
+          </ion-col>
+          </ion-row>
+          
+      <ion-row>
+        <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+          <ion-card #looseBodyFatCard>
+            <ion-img
+            src="assets/images/pages/nutrition/loose-body-fat.png"
+            alt="Cardio"
           ></ion-img>
-          <ion-text>
-            <p>
-              Explore our range of nutrition plans tailored for weight loss and portion control, following the Nutrisystem approach.
-            </p>
-          </ion-text>
-          <ion-button
-            class="nutrition-selector-btn"
-            expand="block"
-            >Nutrisystem</ion-button
-          >
-        </ion-col>
-        <ion-col>
-          <ion-img
-            src="assets/images/pages/nutrition/mediterranean.jpg"
-            alt="Mediterranean Diet"
-          ></ion-img>
-          <ion-text>
-            <p>
-              Dive into the heart-healthy Mediterranean diet, rich in fruits, vegetables, whole grains, and healthy fats.
-            </p>
-          </ion-text>
-          <ion-button
-            class="nutrition-selector-btn"
-            expand="block"
-            >Mediterranean Diet</ion-button
-          >
-        </ion-col>
-        <ion-col>
-          <ion-img
-            src="assets/images/pages/nutrition/vegan.jpeg"
-            alt="Vegan Diet"
-          ></ion-img>
-          <ion-text>
-            <p>Embrace a plant-based lifestyle with our vegan diet plan, packed with nutrient-rich fruits, vegetables, grains, and legumes.</p>
-          </ion-text>
-          <ion-button
-            class="nutrition-selector-btn"
-            expand="block"
-            >Vegan Diet</ion-button
-          >
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+            
+          <ion-card-header>
+            <ion-card-title>Loose Body Fat</ion-card-title>
+          </ion-card-header>
+            <ion-card-content>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget commodo nisi, vel efficitur nulla. Nulla et lorem et turpis ultrices sollicitudin.</p>
+              <ion-button
+            class="skip-introduction-button"
+            expand="block">Explore</ion-button>
+            </ion-card-content>
+          </ion-card>
+          </ion-col>
+          <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+            <ion-card #gainMuscleCard>
+              <ion-img
+              src="assets/images/pages/nutrition/gain-muscle.png"
+              alt="Cardio"
+            ></ion-img>
+            <ion-card-header>
+              <ion-card-title>Gain Muscle</ion-card-title>
+            </ion-card-header>
+              <ion-card-content>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget commodo nisi, vel efficitur nulla. Nulla et lorem et turpis ultrices sollicitudin.</p>
+                <ion-button
+              class="skip-introduction-button"
+              expand="block">Explore</ion-button>
+              </ion-card-content>
+            </ion-card>
+            </ion-col>
+            <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+              <ion-card #bodyRecompCard>
+                <ion-img
+                src="assets/images/pages/nutrition/body-recomp.png"
+                alt="Cardio"
+              ></ion-img>
+              <ion-card-header>
+                <ion-card-title>Body Recomposition</ion-card-title>
+              </ion-card-header>
+                <ion-card-content>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget commodo nisi, vel efficitur nulla. Nulla et lorem et turpis ultrices sollicitudin.</p>
+                  <ion-button
+                class="skip-introduction-button"
+                expand="block">Explore</ion-button>
+                </ion-card-content>
+              </ion-card>
+              </ion-col>
+    </ion-row></ion-grid>
   </ion-content>
 </ion-header>

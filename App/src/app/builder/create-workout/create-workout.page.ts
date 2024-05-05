@@ -53,7 +53,7 @@ export class CreateWorkoutPage implements OnInit {
     .create()
     .addElement(this.firstCard.nativeElement)
     .duration(500)
-    .fromTo('opacity', '0', '1');
+    .fromTo('opacity', '0.3', '1');
     this.animation.play();
   }
 
