@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonListHeader, IonSelectOption, IonItemDivider, IonItemGroup, IonIcon, IonThumbnail, ModalController} from '@ionic/angular/standalone';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { SaveWorkoutComponent } from 'src/app/components/save-workout/save-workout.component';
+import { Animation, AnimationController } from '@ionic/angular';
 
 const MUSCLE_GROUP_IDS = {
   BICEPS: 1,
@@ -34,12 +35,26 @@ export class CreateWorkoutPage implements OnInit {
   expandedGroups: number[] = [];
   currentGroup: number;
 
-  constructor(private http: HttpClient, private router: Router, private modalController: ModalController) {
+  @ViewChild('muscleDropdown', { read: ElementRef }) firstCard: ElementRef;
+
+  private animation: Animation;
+
+  constructor(private http: HttpClient, private router: Router, private modalController: ModalController, private animationCtrl: AnimationController) {
     this.currentGroup = 0;
   }
 
   ngOnInit() {
     this.getData();
+    
+  }
+
+  ngAfterViewInit() {
+    this.animation = this.animationCtrl
+    .create()
+    .addElement(this.firstCard.nativeElement)
+    .duration(500)
+    .fromTo('opacity', '0', '1');
+    this.animation.play();
   }
 
   getData() {

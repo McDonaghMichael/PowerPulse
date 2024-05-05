@@ -15,11 +15,15 @@ import { IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg,
 export class WorkoutDetailsPage implements OnInit {
 
   workout: any;
+  shouldHideStats: boolean = false;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.workout = history.state.workout;
+    if(this.workout.reps == null){
+      this.shouldHideStats = true;
+    }
   }
 
   back(){

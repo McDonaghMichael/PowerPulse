@@ -17,7 +17,7 @@
           <ion-card-content>
             <img [src]="workout.img">
             <h3>{{ workout.description }}</h3>
-            <div class="cont">
+            <div [hidden]="shouldHideStats" class="cont">
               <span class="x">Sets:</span> <span class="y"> {{ workout.sets }}</span>
             <br>
             <span class="x">Reps:</span> <span class="y"> {{ workout.reps }}</span>

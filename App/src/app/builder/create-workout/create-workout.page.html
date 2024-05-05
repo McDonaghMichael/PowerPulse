@@ -3,7 +3,7 @@
     <h1 class="page-title">Workout Builder</h1>
   </ion-text>
 
-  <ion-list class="ion-list">
+  <ion-list #muscleDropdown class="ion-list">
     <ion-item-group *ngFor="let muscleGroup of availableWorkouts | keyvalue">
       <ion-item-divider (click)="toggleGroup(+muscleGroup.key)" class="muscle-group-header">  
         <ion-thumbnail slot="start">
