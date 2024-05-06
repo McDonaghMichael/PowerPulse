@@ -4,6 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle} from '@ionic/angular/standalone';
 import { Animation, AnimationController } from '@ionic/angular';
 
+
+const INTRODUCTION_STAGE = 1;
+const EXPLORE_OPTIONS_STAGE = 2;
+const LOOSE_BODY_FAT_STAGE = 3;
+const GAIN_MUSCLE_STAGE = 4;
+const BODY_RECOMP_STAGE = 5;
+const FINAL_STAGE = 6;
+
 @Component({
   selector: 'app-nutrition',
   templateUrl: './nutrition.page.html',
@@ -22,26 +30,68 @@ export class NutritionPage implements OnInit {
   private gainMuscleAnimation: Animation;
   private recompAnimation: Animation;
 
-  texts: string[] = [
+
+
+  introductionTexts: string[] = [
     "Welcome, im Michael! Your Personal Nutritionist.",
     "Nutrition is a big part of our health so it is important we do things right!",
-    "While there is a ton of ways to go about your diet, it is important you find a way that works for you.",
-    "This is where I am here to help as we go on a journey of finding what foods work best for your journey",
+    "While there is a ton of ways to go about acheiving your goals, we will explore what main components of your diet will allow you to reach your goals.",
     "Lets begin!"
   ];
+
+  explorOptionsStage: string[] = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum ligula ut ligula feugiat, nec ultrices mauris suscipit. Nulla posuere odio velit, quis eleifend dui venenatis quis.",
+    "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit velit quis dui consequat, sit amet sagittis orci mattis."
+  ];
+  
+  looseBodyFatStage: string[] = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum ligula ut ligula feugiat, nec ultrices mauris suscipit. Nulla posuere odio velit, quis eleifend dui venenatis quis.",
+    "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit velit quis dui consequat, sit amet sagittis orci mattis.",
+    "Proin non lacus bibendum, semper mauris ac, euismod libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ut tellus ac orci fermentum placerat.",
+    "Cras ut semper urna. Vestibulum auctor vestibulum bibendum. Integer tincidunt vehicula felis, ut vehicula urna posuere nec. Vivamus condimentum ligula sed dictum elementum.",
+    "Donec ullamcorper, purus a vestibulum rhoncus, purus nunc malesuada magna, sit amet eleifend velit dolor vitae nisi."
+  ];
+  
+  gainMuscleStage: string[] = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum ligula ut ligula feugiat, nec ultrices mauris suscipit. Nulla posuere odio velit, quis eleifend dui venenatis quis.",
+    "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit velit quis dui consequat, sit amet sagittis orci mattis.",
+    "Proin non lacus bibendum, semper mauris ac, euismod libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ut tellus ac orci fermentum placerat.",
+    "Cras ut semper urna. Vestibulum auctor vestibulum bibendum. Integer tincidunt vehicula felis, ut vehicula urna posuere nec. Vivamus condimentum ligula sed dictum elementum.",
+    "Donec ullamcorper, purus a vestibulum rhoncus, purus nunc malesuada magna, sit amet eleifend velit dolor vitae nisi."
+  ];
+  
+  bodyRecompStage: string[] = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum ligula ut ligula feugiat, nec ultrices mauris suscipit. Nulla posuere odio velit, quis eleifend dui venenatis quis.",
+    "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit velit quis dui consequat, sit amet sagittis orci mattis.",
+    "Proin non lacus bibendum, semper mauris ac, euismod libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ut tellus ac orci fermentum placerat.",
+    "Cras ut semper urna. Vestibulum auctor vestibulum bibendum. Integer tincidunt vehicula felis, ut vehicula urna posuere nec. Vivamus condimentum ligula sed dictum elementum.",
+    "Donec ullamcorper, purus a vestibulum rhoncus, purus nunc malesuada magna, sit amet eleifend velit dolor vitae nisi."
+  ];
+  
+  finalStage: string[] = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum ligula ut ligula feugiat, nec ultrices mauris suscipit. Nulla posuere odio velit, quis eleifend dui venenatis quis."
+  ];
+  
+
   currentText: string = '';
   headerText: string = '';
 
+  currentStage: number = 1;
   typingSpeed: number = 10; 
   currentIndex: number = 0;
   hideIntroduction: boolean = false;
-  hideJourney: boolean = true;
+  hideOptionsGrid: boolean = true;
+  hideLooseFatCard: boolean = true;
+  hideGainMuscleCard: boolean = true;
+  hideBodyRecomp: boolean = true;
+  hideHeader: boolean = false;
+  hideFinalStage: boolean = true;
 
   constructor(private animationCtrl: AnimationController) { }
 
   ngOnInit() {
 
-    this.startTyping();
+    this.startTyping(INTRODUCTION_STAGE);
     this.bodyFatAnimation = this.animationCtrl
       .create()
       .addElement(this.looseBodyFatCard.nativeElement)
@@ -84,44 +134,114 @@ export class NutritionPage implements OnInit {
     await this.recompAnimation.play();
   }
 
+  updateStage(stage: number){
+    this.currentStage = stage;
+    this.currentIndex = 0;
+    switch (stage) {
+      case INTRODUCTION_STAGE:
 
-  startTyping() {
-    if (this.currentIndex < this.texts.length) {
-      const textToType = this.texts[this.currentIndex];
-      this.typeText(textToType, 0);
-    } else {
-      this.hideIntroduction = true; 
-      this.hideJourney = false;
+        break;
+      case EXPLORE_OPTIONS_STAGE:
+        this.hideIntroduction = true; 
+      this.hideOptionsGrid = false;
+      this.hideLooseFatCard = false;
+      this.hideBodyRecomp = false;
+      this.hideGainMuscleCard = false;
+      
+
+        break;
+      case LOOSE_BODY_FAT_STAGE:
+       this.hideBodyRecomp = true;
+       this.hideGainMuscleCard = true;
+       this.hideHeader = true;
+     
+        break;
+      case GAIN_MUSCLE_STAGE:
+        this.hideLooseFatCard = true;
+        this.hideGainMuscleCard = false;
+        break;
+
+        case BODY_RECOMP_STAGE:
+          this.hideGainMuscleCard = true;
+          this.hideBodyRecomp = false;
+          break;
+          case FINAL_STAGE:
+            this.hideBodyRecomp = true;
+            this.hideOptionsGrid= true;
+            this.hideFinalStage = false;
+            break;
+    }
+    
+    if(this.currentStage < FINAL_STAGE){
+      this.currentText = '';
+    }
+
+    
+     
+      
       setTimeout(() => {
         this.play(); 
-        this.typeSentence("It is important in fitness to have a goal in mind. What is it that you wish to acheive? List below are your three options. Click on each to learn about more", 0);
-      }, 2000);
-    }
-  }
-  
-  typeText(text: string, index: number) {
-    if (index <= text.length) {
-      this.currentText = text.slice(0, index);
-      setTimeout(() => {
-        this.typeText(text, index + 1);
-      }, this.typingSpeed);
-    } else {
-      setTimeout(() => {
-        this.currentIndex++;
-        this.startTyping();
-      }, 1000);
-    }
+        this.startTyping(stage);
+         }, 2000);
   }
 
-  typeSentence(text: string, index: number) {
-    if (index <= text.length) {
-      this.headerText = text.slice(0, index); 
-      setTimeout(() => {
-        this.typeSentence(text, index + 1);
-      }, this.typingSpeed);
-    }
-  }
-  
-  
+  startTyping(stage: number) {
+    let textToType: string[] = [];
+    switch (stage) {
+      case INTRODUCTION_STAGE:
+        textToType = this.introductionTexts;
+        break;
+      case EXPLORE_OPTIONS_STAGE:
+        textToType = this.explorOptionsStage;
+        break;
+      case LOOSE_BODY_FAT_STAGE:
+        textToType = this.looseBodyFatStage;
+        break;
 
+      case GAIN_MUSCLE_STAGE:
+        textToType = this.gainMuscleStage;
+        break;
+        case BODY_RECOMP_STAGE:
+          textToType = this.bodyRecompStage;
+          break;
+      case FINAL_STAGE:
+        textToType = this.finalStage;
+        break;
+    }
+
+        
+        if (textToType && this.currentIndex < textToType.length) {
+          this.typeText(textToType[this.currentIndex], 0, textToType);
+        } else {
+         
+          this.updateStage(stage + 1);
+         
+        }
+  
 }
+
+skipIntroduction(){
+  this.updateStage(EXPLORE_OPTIONS_STAGE);
+}
+
+restart(){
+  location.reload();
+}
+
+typeText(text: string, index: number, array: string[]) {
+  if (index <= text.length) {
+    this.currentText = text.slice(0, index);
+    setTimeout(() => {
+      this.typeText(text, index + 1, array);
+    }, this.typingSpeed);
+  } else {
+    setTimeout(() => {
+      this.currentIndex++;
+       this.startTyping(this.currentStage);
+    }, 1000);
+  }
+}
+}
+  
+
+
