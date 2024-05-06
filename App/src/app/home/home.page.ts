@@ -74,7 +74,10 @@ export class HomePage implements OnInit {
     }
 
     loadPageData() {
-      this.http.get('assets/json/workouts.json').subscribe((data: any) => {
+     
+      let url = `https://jsonblob.com/api/jsonBlob/1237078231554580480`;
+      this.http.get(url).subscribe(
+        (data: any) => {
   
         const allWorkouts = [
           ...data.workouts.strength,
@@ -93,7 +96,10 @@ export class HomePage implements OnInit {
          
       });
 
-      this.http.get('assets/json/blogs.json').subscribe((data: any) => {
+      let url2 = `https://jsonblob.com/api/jsonBlob/1237079230486798336`;
+      this.http.get<any>(url2).subscribe(
+        (data: any) => {
+
   
         const allBlogs = data.blogs;
   
