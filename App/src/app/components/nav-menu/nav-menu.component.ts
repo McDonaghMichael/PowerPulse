@@ -35,6 +35,7 @@ const PAGES = {
 export class NavMenuComponent  implements OnInit {
 
   quotes: any;
+  blobId = '1237014232670527488';
   constructor(private http: HttpClient, private router: Router) {}
   
   ngOnInit(): void {
@@ -58,16 +59,23 @@ export class NavMenuComponent  implements OnInit {
 
 
   getData() {
-    this.http.get('assets/json/quotes.json').subscribe((data: any) => {
-          this.quotes = data;
-      
-          const randomIndex = Math.floor(Math.random() * this.quotes.length);
-          let selectedQuote = this.quotes[randomIndex];
-          const quoteElement = document.querySelector('.nav-quote');
-          if (quoteElement) { 
-          quoteElement.textContent = selectedQuote["quote"] + " - " + selectedQuote["author"];
-          }
-      console.log(this.quotes);
-    });
+    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+    this.http.get<any[]>(url).subscribe(
+      (data: any[]) => {
+        this.quotes = data;
+        const randomIndex = Math.floor(Math.random() * this.quotes.length);
+        const selectedQuote = this.quotes[randomIndex];
+
+        const quoteElement = document.querySelector('.nav-quote');
+        if (quoteElement) { 
+          quoteElement.textContent = `${selectedQuote.quote} - ${selectedQuote.author}`;
+        }
+
+        console.log(this.quotes);
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
   }
 }
