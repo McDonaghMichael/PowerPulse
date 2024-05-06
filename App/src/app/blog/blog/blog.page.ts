@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class BlogPage implements OnInit {
 
+  blobId = '1237079230486798336';
   blogs: any;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -24,17 +25,18 @@ export class BlogPage implements OnInit {
   }
 
   getData() {
-    this.http.get('assets/json/blogs.json').subscribe((data: any) => {
-      
-              this.blogs = data.blogs;
-        
-      
-      
-      console.log(this.blogs);
-    });
-
-    
-}
+    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+    this.http.get<any>(url).subscribe(
+      (data: any) => {
+        this.blogs = data.blogs; 
+        console.log(this.blogs);
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
+  
 
 readBlog(blog: any) {
     this.router.navigate(['/blog/view'], { state: { blog } });

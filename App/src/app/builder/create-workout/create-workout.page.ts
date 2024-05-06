@@ -35,6 +35,8 @@ export class CreateWorkoutPage implements OnInit {
   expandedGroups: number[] = [];
   currentGroup: number;
 
+  blobId = '1237078231554580480';
+  
   @ViewChild('muscleDropdown', { read: ElementRef }) firstCard: ElementRef;
 
   private animation: Animation;
@@ -58,7 +60,9 @@ export class CreateWorkoutPage implements OnInit {
   }
 
   getData() {
-    this.http.get('assets/json/workouts.json').subscribe((data: any) => {
+    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+    this.http.get<any>(url).subscribe(
+      (data: any) => {
       Object.values(MUSCLE_GROUP_IDS).forEach(id => {
         this.availableWorkouts[id] = data.workouts.strength.filter((workout: any) => workout.muscleGroupId === id);
       });

@@ -16,6 +16,8 @@ export class LibraryWorkoutListPage implements OnInit {
   workouts: any;
   type: any;
   workoutType: any;
+  hideWorkoutStats: boolean = false;
+  blobId = '1237078231554580480';
   
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -24,27 +26,36 @@ export class LibraryWorkoutListPage implements OnInit {
   }
 
   getData() {
-    this.http.get('assets/json/workouts.json').subscribe((data: any) => {
-      this.type = history.state.type;
-      switch(this.type){
-        case 0:
-          this.workouts = data.workouts.strength;
-          this.workoutType = "Strength";
-          break;
-          case 1:
-            this.workouts = data.workouts.cardiovascular;
-          this.workoutType = "Cardiovascular";
-
-            break;
+    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+      this.http.get(url).subscribe(
+        (data: any) => {
+          this.type = history.state.type;
+          switch(this.type) {
+            case 0:
+              this.workouts = data.workouts.strength;
+              this.workoutType = "Strength";
+              break;
+            case 1:
+              this.workouts = data.workouts.cardiovascular;
+              this.workoutType = "Cardiovascular";
+              this.hideWorkoutStats = true;
+              break;
             case 2:
               this.workouts = data.workouts.flexibility;
-          this.workoutType = "Flexibility";
-
+              this.workoutType = "Flexibility";
+              this.hideWorkoutStats = true;
               break;
-      }
-      
-      console.log(this.workouts);
-    });
+            default:
+              console.error('Invalid workout type');
+          }
+          console.log(this.workouts);
+        },
+        (error) => {
+          console.error('Error fetching data:', error);
+        }
+      );
+ 
+    
   }
   exploreWorkout(workout: any) {
     this.router.navigate(['/library/details'], { state: { workout } });

@@ -13,10 +13,14 @@
             <ion-card-title>{{ workout.name }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
+            <img [src]="workout.img">
             <p>{{ workout.description }}</p>
-            <p>Sets: {{ workout.sets }}</p>
-            <p>Reps: {{ workout.reps }}</p>
-            <p>Rest: {{ workout.rest }}</p>
+            <div [hidden]="hideWorkoutStats">
+              <p>Sets: {{ workout.sets }}</p>
+              <p>Reps: {{ workout.reps }}</p>
+              <p>Rest: {{ workout.rest }}</p>
+            </div>
+            
             <ion-button (click)="exploreWorkout(workout)">Explore</ion-button>
           </ion-card-content>
         </ion-card>
