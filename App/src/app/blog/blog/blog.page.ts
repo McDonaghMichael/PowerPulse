@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle } from '@ionic/angular/standalone';
 
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -28,7 +28,7 @@ export class BlogPage implements OnInit {
     const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
     this.http.get<any>(url).subscribe(
       (data: any) => {
-        this.blogs = data.blogs; 
+        this.blogs = data.blogs;
         console.log(this.blogs);
       },
       (error) => {
@@ -36,10 +36,10 @@ export class BlogPage implements OnInit {
       }
     );
   }
-  
 
-readBlog(blog: any) {
+
+  readBlog(blog: any) {
     this.router.navigate(['/blog/view'], { state: { blog } });
-  
-}
+
+  }
 }

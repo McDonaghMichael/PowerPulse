@@ -5,7 +5,7 @@ import { IonImg } from '@ionic/angular';
 import { IonThumbnail, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink, featherHome} from '@ng-icons/feather-icons';
+import { featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink, featherHome } from '@ng-icons/feather-icons';
 
 
 
@@ -18,34 +18,34 @@ const PAGES = {
   FAQ: 3,
   CONTACT: 4,
   NUTRITION: 5,
-  
+
 };
 
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.scss'],
-  imports: [ IonThumbnail, NgIconComponent, IonMenu, IonHeader, RouterModule, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup],
+  imports: [IonThumbnail, NgIconComponent, IonMenu, IonHeader, RouterModule, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup],
   standalone: true,
   providers: [provideIcons({ featherHome, featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink })],
 })
 
 
 
-export class NavMenuComponent  implements OnInit {
+export class NavMenuComponent implements OnInit {
 
   quotes: any;
   blobId = '1237014232670527488';
-  constructor(private http: HttpClient, private router: Router) {}
-  
+  constructor(private http: HttpClient, private router: Router) { }
+
   ngOnInit(): void {
-   this.getData();
-   
+    this.getData();
+
   }
 
   navigatePage(page: string): void {
     this.router.navigate([page]);
-  
+
   }
 
   async shareApp(type: string) {
@@ -67,7 +67,7 @@ export class NavMenuComponent  implements OnInit {
         const selectedQuote = this.quotes[randomIndex];
 
         const quoteElement = document.querySelector('.nav-quote');
-        if (quoteElement) { 
+        if (quoteElement) {
           quoteElement.textContent = `${selectedQuote.quote} - ${selectedQuote.author}`;
         }
 

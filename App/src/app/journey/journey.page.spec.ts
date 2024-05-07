@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NutritionPage } from './nutrition.page';
+import { NutritionPage } from './journey.page';
 
 describe('NutritionPage', () => {
   let component: NutritionPage;

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle } from '@ionic/angular/standalone';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Animation, AnimationController } from '@ionic/angular';
@@ -11,7 +11,7 @@ import { Animation, AnimationController } from '@ionic/angular';
   templateUrl: './library.page.html',
   styleUrls: ['./library.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText,IonCard, IonCardHeader, IonCardContent, IonCardTitle]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle]
 })
 export class LibraryPage implements OnInit {
 
@@ -41,7 +41,7 @@ export class LibraryPage implements OnInit {
         { offset: 1, transform: 'scale(1) rotate(0)' },
       ]);
 
-      this.cardiovascularAnimation = this.animationCtrl
+    this.cardiovascularAnimation = this.animationCtrl
       .create()
       .addElement(this.cardiovascularCard.nativeElement)
       .fill('none')
@@ -52,7 +52,7 @@ export class LibraryPage implements OnInit {
         { offset: 1, transform: 'scale(1) rotate(0)' },
       ]);
 
-      this.flexibilityAnimation = this.animationCtrl
+    this.flexibilityAnimation = this.animationCtrl
       .create()
       .addElement(this.flexibilityCard.nativeElement)
       .fill('none')
@@ -76,12 +76,12 @@ export class LibraryPage implements OnInit {
     this.router.navigate(['/library/strength']);
   }
 
-   navigateToCardio() {
+  navigateToCardio() {
     this.router.navigate(['/library/cardiovascular']);
   }
 
   navigateToFlexibility() {
-    this.router.navigate(['/library/flexibility']); 
+    this.router.navigate(['/library/flexibility']);
   }
 
   navigateWorkoutList(type: any) {

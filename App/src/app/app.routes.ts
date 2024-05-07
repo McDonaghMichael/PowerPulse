@@ -7,42 +7,42 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    loadComponent: () => import('./about/about.page').then( m => m.AboutPage)
+    loadComponent: () => import('./about/about.page').then(m => m.AboutPage)
   },
   {
     path: 'builder',
-    loadComponent: () => import('./builder/create-workout/create-workout.page').then( m => m.CreateWorkoutPage)
+    loadComponent: () => import('./builder/create-workout/create-workout.page').then(m => m.CreateWorkoutPage)
   },
   {
     path: 'library',
-    loadComponent: () => import('./library/library/library.page').then( m => m.LibraryPage)
+    loadComponent: () => import('./library/library/library.page').then(m => m.LibraryPage)
   },
   {
     path: 'library/details',
-    loadComponent: () => import('./library/workout-details/workout-details.page').then( m => m.WorkoutDetailsPage)
+    loadComponent: () => import('./library/workout-details/workout-details.page').then(m => m.WorkoutDetailsPage)
   },
   {
     path: 'library/list',
-    loadComponent: () => import('./library/library-workout-list/library-workout-list.page').then( m => m.LibraryWorkoutListPage)
+    loadComponent: () => import('./library/library-workout-list/library-workout-list.page').then(m => m.LibraryWorkoutListPage)
   },
   {
     path: 'faq',
-    loadComponent: () => import('./faq/faq.page').then( m => m.FaqPage)
+    loadComponent: () => import('./faq/faq.page').then(m => m.FaqPage)
   },
   {
     path: 'contact',
-    loadComponent: () => import('./contact/contact.page').then( m => m.ContactPage)
+    loadComponent: () => import('./contact/contact.page').then(m => m.ContactPage)
   },
   {
-    path: 'nutrition',
-    loadComponent: () => import('./nutrition/nutrition.page').then( m => m.NutritionPage)
+    path: 'journey',
+    loadComponent: () => import('./journey/journey.page').then(m => m.JourneyPage)
   },
   {
     path: 'blog',
-    loadComponent: () => import('./blog/blog/blog.page').then( m => m.BlogPage)
+    loadComponent: () => import('./blog/blog/blog.page').then(m => m.BlogPage)
   },
   {
     path: 'blog/view',
-    loadComponent: () => import('./blog/view-blog/view-blog.page').then( m => m.ViewBlogPage)
+    loadComponent: () => import('./blog/view-blog/view-blog.page').then(m => m.ViewBlogPage)
   },
 ];

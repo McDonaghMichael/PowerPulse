@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { ActivatedRoute } from '@angular/router';
-import { IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle} from '@ionic/angular/standalone';
+import { IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-workout-details',
@@ -21,12 +21,12 @@ export class WorkoutDetailsPage implements OnInit {
 
   ngOnInit() {
     this.workout = history.state.workout;
-    if(this.workout.reps == null){
+    if (this.workout.reps == null) {
       this.shouldHideStats = true;
     }
   }
 
-  back(){
+  back() {
     history.back();
   }
 }

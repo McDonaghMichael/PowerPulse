@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './save-workout.component.html',
   styleUrls: ['./save-workout.component.scss'],
   standalone: true,
-  imports: [ IonicModule]
+  imports: [IonicModule]
 })
 export class SaveWorkoutComponent {
 
@@ -16,7 +16,7 @@ export class SaveWorkoutComponent {
 
   name: string;
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController) { }
 
   async cancel() {
     await this.modal.dismiss(null, 'cancel');
@@ -31,7 +31,7 @@ export class SaveWorkoutComponent {
   async onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      
+
     }
   }
 }
