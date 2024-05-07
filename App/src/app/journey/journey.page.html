@@ -1,131 +1,131 @@
-<ion-header [translucent]="true">
-  <ion-content [fullscreen]="true">
-    <ion-text>
-      <h1 class="page-title">Journey</h1>
-    </ion-text>
-    <ion-grid [fixed]="true" *ngIf="!hideIntroduction">
-      <ion-row>
-        <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="4">
-          <ion-card>
-            <ion-img
-              src="assets/images/pages/journey/michael.png"
-              alt="Cardio"
-            ></ion-img>
-            <ion-card-content>
-              <p>{{ currentText }}</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row></ion-grid
-    >
+<ion-content [fullscreen]="true">
+  <ion-text>
+    <h1 class="page-title">Journey</h1>
+  </ion-text>
+  <ion-grid [fixed]="true" *ngIf="!hideIntroduction">
+    <ion-row>
+      <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="4">
+        <ion-card>
+          <ion-img
+            src="assets/images/pages/journey/michael.png"
+            alt="Cardio"
+          ></ion-img>
+          <ion-card-content>
+            <p>{{ currentText }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row></ion-grid
+  >
 
-    <ion-grid [fixed]="true" *ngIf="!hideFinalStage">
-      <ion-row>
-        <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="4">
-          <ion-card>
-            <ion-img
-              src="assets/images/pages/journey/final-stage.png"
-              alt="Cardio"
-            ></ion-img>
+  <ion-grid [fixed]="true" *ngIf="!hideFinalStage">
+    <ion-row>
+      <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="4">
+        <ion-card>
+          <ion-img
+            src="assets/images/pages/journey/final-stage.png"
+            alt="Cardio"
+          ></ion-img>
 
-            <ion-card-content>
-              <p>{{ currentText }}</p>
-              <ion-button
-                class="skip-introduction-button"
-                expand="block"
-                (click)="restart()"
-                >Restart</ion-button
-              >
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row></ion-grid
-    >
+          <ion-card-content>
+            <p>{{ currentText }}</p>
+            <ion-button
+              class="skip-introduction-button"
+              expand="block"
+              (click)="restart()"
+              >Restart</ion-button
+            >
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row></ion-grid
+  >
 
-    <ion-grid [fixed]="true" *ngIf="!hideOptionsGrid">
-      <ion-row *ngIf="!hideHeader">
-        <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="5">
-          <ion-card class="ion-card-primary">
-            <ion-card-content>
-              <p>{{ currentText }}</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
+  <ion-grid [fixed]="true" *ngIf="!hideOptionsGrid">
+    <ion-row *ngIf="!hideHeader">
+      <ion-col offset-lg="4" size-xs="12" size-sm="4" size-lg="5">
+        <ion-card class="ion-card-primary">
+          <ion-card-content>
+            <p>{{ currentText }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-      <ion-row>
-        <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
-          <ion-card #looseBodyFatCard *ngIf="!hideLooseFatCard">
-            <ion-img
-              src="assets/images/pages/journey/loose-body-fat.png"
-              alt="Cardio"
-            ></ion-img>
+    <ion-row>
+      <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+        <ion-card #looseBodyFatCard *ngIf="!hideLooseFatCard">
+          <ion-img
+            src="assets/images/pages/journey/loose-body-fat.png"
+            alt="Cardio"
+          ></ion-img>
 
-            <ion-card-header>
-              <ion-card-title>Loose Body Fat</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>
-                Losing body fat refers to the process of reducing the amount of
-                fat stored in the body. It's a common goal for those aiming to improve their overall health, appearance, and athletic performance.
-              </p>
-            </ion-card-content>
-          </ion-card>
+          <ion-card-header>
+            <ion-card-title>Loose Body Fat</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              Losing body fat refers to the process of reducing the amount of
+              fat stored in the body. It's a common goal for those aiming to
+              improve their overall health, appearance, and athletic
+              performance.
+            </p>
+          </ion-card-content>
+        </ion-card>
 
-          <ion-card
-            #looseBodyFatCard
-            *ngIf="hideLooseFatCard && !hideGainMuscleCard"
-          >
-            <ion-card-header>
-              <ion-card-title>Personal Trainer</ion-card-title>
-            </ion-card-header>
-            <ion-card-content> {{ currentText }} </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
-          <ion-card #looseBodyFatCard *ngIf="hideGainMuscleCard">
-            <ion-card-header>
-              <ion-card-title>Personal Trainer</ion-card-title>
-            </ion-card-header>
-            <ion-card-content> {{ currentText }} </ion-card-content>
-          </ion-card>
+        <ion-card
+          #looseBodyFatCard
+          *ngIf="hideLooseFatCard && !hideGainMuscleCard"
+        >
+          <ion-card-header>
+            <ion-card-title>Personal Trainer</ion-card-title>
+          </ion-card-header>
+          <ion-card-content> {{ currentText }} </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+        <ion-card #looseBodyFatCard *ngIf="hideGainMuscleCard">
+          <ion-card-header>
+            <ion-card-title>Personal Trainer</ion-card-title>
+          </ion-card-header>
+          <ion-card-content> {{ currentText }} </ion-card-content>
+        </ion-card>
 
-          <ion-card #gainMuscleCard *ngIf="!hideGainMuscleCard">
-            <ion-img
-              src="assets/images/pages/journey/gain-muscle.png"
-              alt="Cardio"
-            ></ion-img>
-            <ion-card-header>
-              <ion-card-title>Gain Muscle</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>
-                Muscle gain, also known as muscle hypertrophy, is the process of
-                increasing the size and strength of skeletal muscles through
-                resistance training and proper nutrition.
-              </p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
-          <ion-card #bodyRecompCard *ngIf="!hideBodyRecomp">
-            <ion-img
-              src="assets/images/pages/journey/body-recomp.png"
-              alt="Cardio"
-            ></ion-img>
-            <ion-card-header>
-              <ion-card-title>Body Recomposition</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>
-                Body recomposition, often referred to as "body recomp," is a
-                process aimed at simultaneously reducing body fat and increasing
-                muscle mass to improve body composition.
-              </p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row></ion-grid
-    >
-  </ion-content>
-</ion-header>
+        <ion-card #gainMuscleCard *ngIf="!hideGainMuscleCard">
+          <ion-img
+            src="assets/images/pages/journey/gain-muscle.png"
+            alt="Cardio"
+          ></ion-img>
+          <ion-card-header>
+            <ion-card-title>Gain Muscle</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              Muscle gain, also known as muscle hypertrophy, is the process of
+              increasing the size and strength of skeletal muscles through
+              resistance training and proper nutrition.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4">
+        <ion-card #bodyRecompCard *ngIf="!hideBodyRecomp">
+          <ion-img
+            src="assets/images/pages/journey/body-recomp.png"
+            alt="Cardio"
+          ></ion-img>
+          <ion-card-header>
+            <ion-card-title>Body Recomposition</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              Body recomposition, often referred to as "body recomp," is a
+              process aimed at simultaneously reducing body fat and increasing
+              muscle mass to improve body composition.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row></ion-grid
+  >
+</ion-content>

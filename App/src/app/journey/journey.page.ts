@@ -231,8 +231,9 @@ export class JourneyPage implements OnInit {
     } else {
       setTimeout(() => {
         this.updateStage(this.currentStage + 1);
+        this.currentText = '';
       }, text.length * 25);
-      this.currentText = '';
+      
     }
   }
 
