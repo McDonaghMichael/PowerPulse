@@ -16,16 +16,18 @@ import { Router } from '@angular/router';
 })
 export class BlogPage implements OnInit {
 
-  blobId = '1237079230486798336';
   blogs: any;
 
   constructor(private http: HttpClient, private router: Router) { }
   ngOnInit() {
-    this.getData();
+    this.loadBlogData();
   }
 
-  getData() {
-    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+  /**
+   * Loads in all the blog data to the page
+  */
+  loadBlogData() {
+    const url = `https://jsonblob.com/api/jsonBlob/1237079230486798336`;
     this.http.get<any>(url).subscribe(
       (data: any) => {
         this.blogs = data.blogs;

@@ -1,25 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonImg } from '@ionic/angular';
 import { IonThumbnail, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton, IonIcon, IonItemDivider, IonLabel, IonItem, IonList, IonItemGroup } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink, featherHome } from '@ng-icons/feather-icons';
 
-
-
 import { Share } from '@capacitor/share';
-
-const PAGES = {
-  LIBRARY: 0,
-  WORKOUT_BUILDER: 1,
-  ABOUT: 2,
-  FAQ: 3,
-  CONTACT: 4,
-  NUTRITION: 5,
-
-};
 
 @Component({
   selector: 'app-nav-menu',
@@ -35,7 +22,7 @@ const PAGES = {
 export class NavMenuComponent implements OnInit {
 
   quotes: any;
-  blobId = '1237014232670527488';
+
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
@@ -59,7 +46,7 @@ export class NavMenuComponent implements OnInit {
 
 
   getData() {
-    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+    const url = `https://jsonblob.com/api/jsonBlob/1237014232670527488`;
     this.http.get<any[]>(url).subscribe(
       (data: any[]) => {
         this.quotes = data;

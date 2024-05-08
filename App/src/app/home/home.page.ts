@@ -7,12 +7,6 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherFacebook, featherInstagram, featherYoutube, featherTwitter, featherMail, featherLink } from '@ng-icons/feather-icons';
 import { Share } from '@capacitor/share';
 
-const BANNER_IMAGES = [
-  "assets/images/pages/home/banner-1.jpg",
-  "assets/images/pages/home/banner-2.avif"
-
-];
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -24,7 +18,16 @@ const BANNER_IMAGES = [
 })
 export class HomePage implements OnInit {
 
-  selectedImage: any;
+  /**
+   * Fetches the first and second card on our home page
+   */
+  @ViewChild('firstCard', { read: ElementRef }) firstCard: ElementRef;
+  @ViewChild('secondCard', { read: ElementRef }) secondCard: ElementRef;
+
+  /**
+   * The following workout and blog variables simply store the currently loaded
+   * blog and workout, along with their names and images
+   */
   workout: any;
   trendingWorkoutName: string;
   trendingWorkoutImage: string;
@@ -33,46 +36,69 @@ export class HomePage implements OnInit {
   dailyFitnessDigestName: string;
   dailyFitnessDigestImage: string;
 
-  @ViewChild('firstCard', { read: ElementRef }) firstCard: ElementRef;
-  @ViewChild('secondCard', { read: ElementRef }) secondCard: ElementRef;
-
-  private animation: Animation;
+  // Stores our card animations
+  private firstCardAnimation: Animation;
+  private secondCardAnimation: Animation;
 
   constructor(private http: HttpClient, private animationCtrl: AnimationController, private router: Router) {
 
   }
 
+  /**
+   * The following method is called by the app in order to share the app
+   * to different apps or browsers. It uses the capacitor share plugin.
+   */
   async shareApp(type: string) {
     await Share.share({
       title: 'Share with ' + type,
       text: 'Sharing helps alot',
-      url: 'https://powerpulse.app',
+      url: 'http://localhost:8100/',
       dialogTitle: 'Share with everyone',
     });
   }
 
   ngAfterViewInit() {
-    this.animation = this.animationCtrl
+
+    /**
+     * Once the page has loaded the following animations will grow the
+     * two cards and then shrink them back to normal one after another
+     */
+    this.firstCardAnimation = this.animationCtrl
       .create()
       .addElement(this.firstCard.nativeElement)
-      .duration(1000)
-      .fromTo('opacity', '0', '1');
-    this.animation.play();
+      .duration(500)
+      .keyframes([
+        { offset: 0, transform: 'scale(1) rotate(0)' },
+        { offset: 0.5, transform: 'scale(1.05) rotate(0)' },
+        { offset: 1, transform: 'scale(1) rotate(0)' },
+      ]);
 
-    this.animation = this.animationCtrl
+    this.secondCardAnimation = this.animationCtrl
       .create()
       .addElement(this.secondCard.nativeElement)
-      .duration(1000)
-      .fromTo('opacity', '0', '1');
-    this.animation.play();
+      .duration(500)
+      .keyframes([
+        { offset: 0, transform: 'scale(1) rotate(0)' },
+        { offset: 0.5, transform: 'scale(1.05) rotate(0)' },
+        { offset: 1, transform: 'scale(1) rotate(0)' },
+      ]);
+      this.play();
   }
 
 
   ngOnInit(): void {
     this.loadPageData();
-
   }
 
+  async play() {
+    await this.firstCardAnimation.play();
+    await this.secondCardAnimation.play();
+  }
+  /**
+   * The following method simply heads over to the workouts.json file
+   * hosted externaly and selects a random workout from it, the same for the blogs.json
+   * which is then loaded dynamically to the home page
+   */
   loadPageData() {
 
     let url = `https://jsonblob.com/api/jsonBlob/1237078231554580480`;
@@ -84,7 +110,6 @@ export class HomePage implements OnInit {
           ...data.workouts.cardiovascular,
           ...data.workouts.flexibility
         ];
-
 
         const randomIndex = Math.floor(Math.random() * allWorkouts.length);
 
@@ -105,7 +130,6 @@ export class HomePage implements OnInit {
 
         const randomIndex = Math.floor(Math.random() * allBlogs.length);
 
-
         const randomBlog = allBlogs[randomIndex];
 
         this.blog = randomBlog;
@@ -121,9 +145,7 @@ export class HomePage implements OnInit {
 
   readBlog(blog: any) {
     this.router.navigate(['/blog/view'], { state: { blog } });
-
   }
-
 
 }
 

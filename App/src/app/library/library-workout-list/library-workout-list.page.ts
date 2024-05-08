@@ -17,7 +17,6 @@ export class LibraryWorkoutListPage implements OnInit {
   type: any;
   workoutType: any;
   hideWorkoutStats: boolean = false;
-  blobId = '1237078231554580480';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -26,7 +25,7 @@ export class LibraryWorkoutListPage implements OnInit {
   }
 
   getData() {
-    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+    const url = `https://jsonblob.com/api/jsonBlob/1237078231554580480`;
     this.http.get(url).subscribe(
       (data: any) => {
         this.type = history.state.type;

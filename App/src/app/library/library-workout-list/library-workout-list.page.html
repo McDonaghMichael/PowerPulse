@@ -14,9 +14,11 @@
             <img [src]="workout.img">
             <p>{{ workout.description }}</p>
             <div [hidden]="hideWorkoutStats">
-              <p>Sets: {{ workout.sets }}</p>
-              <p>Reps: {{ workout.reps }}</p>
-              <p>Rest: {{ workout.rest }}</p>
+            <strong>Sets:</strong> <span> {{ workout.sets }}</span>
+            <br>
+            <strong>Reps:</strong> <span> {{ workout.reps }}</span>
+            <br>
+            <strong>Rest:</strong> <span> {{ workout.rest }}</span>
             </div>
             <ion-button (click)="exploreWorkout(workout)">Explore</ion-button>
           </ion-card-content>

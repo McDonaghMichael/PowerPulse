@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { SaveWorkoutComponent } from 'src/app/components/save-workout/save-workout.component';
 import { Animation, AnimationController } from '@ionic/angular';
 
+/**
+ * Each muscle group has been assigned a specific id as shown
+ */
 const MUSCLE_GROUP_IDS = {
   BICEPS: 1,
   TRICEPS: 2,
@@ -35,8 +38,6 @@ export class CreateWorkoutPage implements OnInit {
   expandedGroups: number[] = [];
   currentGroup: number;
 
-  blobId = '1237078231554580480';
-
   @ViewChild('muscleDropdown', { read: ElementRef }) firstCard: ElementRef;
 
   private animation: Animation;
@@ -46,8 +47,7 @@ export class CreateWorkoutPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getData();
-
+    this.loadMuscleData();
   }
 
   ngAfterViewInit() {
@@ -59,8 +59,12 @@ export class CreateWorkoutPage implements OnInit {
     this.animation.play();
   }
 
-  getData() {
-    const url = `https://jsonblob.com/api/jsonBlob/${this.blobId}`;
+  /**
+   * Loads in all the workouts for each muscle group into the availableWorkouts variable
+   * so it can then be loaded into the create-workout.page.html
+   */
+  loadMuscleData() {
+    const url = `https://jsonblob.com/api/jsonBlob/1237078231554580480`;
     this.http.get<any>(url).subscribe(
       (data: any) => {
         Object.values(MUSCLE_GROUP_IDS).forEach(id => {
@@ -70,6 +74,7 @@ export class CreateWorkoutPage implements OnInit {
   }
 
 
+  // Toggles on and off the muscle dropdown
   toggleGroup(group: number) {
     if (this.isGroupShown(group)) {
       this.currentGroup = 0;
@@ -78,12 +83,12 @@ export class CreateWorkoutPage implements OnInit {
     }
   }
 
+  // Checks if a muscle group is shown
   isGroupShown(group: number): boolean {
     return this.currentGroup === group;
   }
 
   addWorkout(workout: any) {
-
     if (!this.selectedWorkouts.find(w => w.id === workout.id)) {
       this.selectedWorkouts.push(workout);
     }
@@ -98,6 +103,9 @@ export class CreateWorkoutPage implements OnInit {
     this.router.navigate(['/library/details'], { state: { workout } });
   }
 
+  /**
+   * Simple method to return the string name of the muscle when given the id
+   */
   getMuscleGroupName(muscleGroupId: number): string {
     switch (muscleGroupId) {
       case MUSCLE_GROUP_IDS.BICEPS:
@@ -123,6 +131,10 @@ export class CreateWorkoutPage implements OnInit {
     }
   }
 
+  /**
+   * Method jsut simply returns the images depending on
+   * what muscle group has been called for.
+   */
   getMuscleGroupIcon(muscleGroupId: number): string {
     switch (muscleGroupId) {
       case MUSCLE_GROUP_IDS.BICEPS:
@@ -148,7 +160,10 @@ export class CreateWorkoutPage implements OnInit {
     }
   }
 
-
+  /**
+   * Displays the save workout modal for the user to enter
+   * the name of the workout
+   */
   async saveWorkout() {
     const modal = await this.modalController.create({
       component: SaveWorkoutComponent,

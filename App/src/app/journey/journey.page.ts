@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonGrid, IonCol, IonRow, IonButton, IonImg, IonText, IonCard, IonCardHeader, IonCardContent, IonCardTitle } from '@ionic/angular/standalone';
 import { Animation, AnimationController } from '@ionic/angular';
 
-
+/**
+ * Here are some basic const variables to mark each stage of the journey
+ */
 const INTRODUCTION_STAGE = 1;
 const EXPLORE_OPTIONS_STAGE = 2;
 const LOOSE_BODY_FAT_STAGE = 3;
@@ -22,6 +24,10 @@ const FINAL_STAGE = 6;
 })
 export class JourneyPage implements OnInit {
 
+  /**
+   * The following code simply gets the element from my journey.page.html, so
+   * it will get the looseBodyFatCard element as it has #looseBodyFatCard beside it
+   */
   @ViewChild('looseBodyFatCard', { read: ElementRef }) looseBodyFatCard: ElementRef;
   @ViewChild('gainMuscleCard', { read: ElementRef }) gainMuscleCard: ElementRef;
   @ViewChild('bodyRecompCard', { read: ElementRef }) bodyRecompCard: ElementRef;
@@ -31,6 +37,11 @@ export class JourneyPage implements OnInit {
   private recompAnimation: Animation;
 
 
+  /**
+   * Listed below are each of the messages that will appear on the screen
+   * depending on what stage the page is in, so if its on the introduction stage 
+   * it will show the "introductionTexts" messages
+   */
 
   introductionTexts: string[] = [
     "Welcome to the beginning of your fitness journey!",
@@ -65,12 +76,24 @@ export class JourneyPage implements OnInit {
   ];
 
 
+  // Sets the default messages to ''
   currentText: string = '';
   headerText: string = '';
 
+  // Current stage, it starts with the introduction (1)
   currentStage: number = 1;
-  typingSpeed: number = 50;
+
+  /**
+   * This is simply the current index of the message array, so the
+   * program knows which string in the array to currently display
+   */
   currentIndex: number = 0;
+
+  /**
+   * Depending on what stage it currently is, the following
+   * variables will get changed as to hide or show certain
+   * cards in the journey.page.html
+   */
   hideIntroduction: boolean = false;
   hideOptionsGrid: boolean = true;
   hideLooseFatCard: boolean = true;
@@ -83,7 +106,9 @@ export class JourneyPage implements OnInit {
 
   ngOnInit() {
 
+    // When the page is loaded, start typing the messages
     this.startTyping(INTRODUCTION_STAGE);
+
     this.bodyFatAnimation = this.animationCtrl
       .create()
       .addElement(this.looseBodyFatCard.nativeElement)
@@ -126,21 +151,21 @@ export class JourneyPage implements OnInit {
     await this.recompAnimation.play();
   }
 
+  /**
+   * Whenever the stage has to be updated the following method gets called.
+   * This will reset the currentIndex so it will start at the start of the message
+   * array, as well as it will hide/show whatever cards for the page that are needed
+   */
   updateStage(stage: number) {
     this.currentStage = stage;
     this.currentIndex = 0;
     switch (stage) {
-      case INTRODUCTION_STAGE:
-
-        break;
       case EXPLORE_OPTIONS_STAGE:
         this.hideIntroduction = true;
         this.hideOptionsGrid = false;
         this.hideLooseFatCard = false;
         this.hideBodyRecomp = false;
         this.hideGainMuscleCard = false;
-
-
         break;
       case LOOSE_BODY_FAT_STAGE:
         this.hideBodyRecomp = true;
@@ -168,9 +193,7 @@ export class JourneyPage implements OnInit {
       this.currentText = '';
     }
 
-
-
-
+    // Here is just a delay so the user can read the messages
     setTimeout(() => {
       this.play();
       this.startTyping(stage);
@@ -180,6 +203,12 @@ export class JourneyPage implements OnInit {
   startTyping(stage: number) {
     this.currentText = '';
     let textToType: string[] = [];
+
+    /**
+     * Depending on what stage we are currently in, the following
+     * will check and then assign the message array to the textToType
+     * variable array, which is then passed and the message is typed.
+     */
     switch (stage) {
       case INTRODUCTION_STAGE:
         textToType = this.introductionTexts;
@@ -190,7 +219,6 @@ export class JourneyPage implements OnInit {
       case LOOSE_BODY_FAT_STAGE:
         textToType = this.looseBodyFatStage;
         break;
-
       case GAIN_MUSCLE_STAGE:
         textToType = this.gainMuscleStage;
         break;
@@ -202,19 +230,16 @@ export class JourneyPage implements OnInit {
         break;
     }
 
-
+    /**
+     * This code will type the current message if there is one, if there isnt
+     * it will begin to update the stage to the next
+     */
     if (textToType && this.currentIndex < textToType.length) {
       this.typeText(textToType[this.currentIndex], this.currentIndex, textToType);
     } else {
-
       this.updateStage(stage + 1);
-
     }
 
-  }
-
-  skipIntroduction() {
-    this.updateStage(EXPLORE_OPTIONS_STAGE);
   }
 
   restart() {

@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Blank </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,58 +10,113 @@
       <ion-col offset-lg=".5" size-xs="12" size-sm="4" size-lg="5">
         <ion-card #firstCard class="first-card">
           <ion-card-header>
-            <ion-card-title>Trending Exercise: {{ trendingWorkoutName }} </ion-card-title>
-            <ion-card-subtitle>Explore todays trending exercises to add to your daily workout</ion-card-subtitle>
+            <ion-card-title
+              >Trending Exercise: {{ trendingWorkoutName }}
+            </ion-card-title>
+            <ion-card-subtitle
+              >Explore todays trending exercises to add to your daily
+              workout</ion-card-subtitle
+            >
           </ion-card-header>
-        
+
           <ion-card-content>
-      
-            
-            <img [src]="trendingWorkoutImage">
-           
+            <img [src]="trendingWorkoutImage" />
           </ion-card-content>
-        
-          <ion-button fill="clear" (click)="exploreWorkout(workout)">Explore</ion-button>
+
+          <ion-button fill="clear" (click)="exploreWorkout(workout)"
+            >Explore</ion-button
+          >
           <ion-item class="icons" lines="none">
             <ion-label>
-              <ng-icon class="facebook" name="featherFacebook" (click)="shareApp('facebook')"></ng-icon>
-              <ng-icon class="instagram" name="featherInstagram" (click)="shareApp('instagram')"></ng-icon>
-              <ng-icon class="twitter" name="featherTwitter" (click)="shareApp('twitter')"></ng-icon>
-              <ng-icon class="youtube" name="featherYoutube" (click)="shareApp('youtube')"></ng-icon>
-              <ng-icon class="mail" name="featherMail" (click)="shareApp('mail')"></ng-icon>
-              <ng-icon class="link" name="featherLink" (click)="shareApp('link')"></ng-icon>
+              <ng-icon
+                class="facebook"
+                name="featherFacebook"
+                (click)="shareApp('facebook')"
+              ></ng-icon>
+              <ng-icon
+                class="instagram"
+                name="featherInstagram"
+                (click)="shareApp('instagram')"
+              ></ng-icon>
+              <ng-icon
+                class="twitter"
+                name="featherTwitter"
+                (click)="shareApp('twitter')"
+              ></ng-icon>
+              <ng-icon
+                class="youtube"
+                name="featherYoutube"
+                (click)="shareApp('youtube')"
+              ></ng-icon>
+              <ng-icon
+                class="mail"
+                name="featherMail"
+                (click)="shareApp('mail')"
+              ></ng-icon>
+              <ng-icon
+                class="link"
+                name="featherLink"
+                (click)="shareApp('link')"
+              ></ng-icon>
             </ion-label>
-          </ion-item>
-        </ion-card></ion-col>
+          </ion-item> </ion-card
+      ></ion-col>
 
+      <ion-col offset-lg=".5" size-xs="12" size-sm="4" size-lg="5">
+        <ion-card #secondCard class="second-card">
+          <ion-card-header>
+            <ion-card-title
+              >Daily Fitness Digest: {{ dailyFitnessDigestName }}
+            </ion-card-title>
+            <ion-card-subtitle
+              >Take a break and read from our daily fitness digest
+              blogs</ion-card-subtitle
+            >
+          </ion-card-header>
 
-        <ion-col offset-lg=".5" size-xs="12" size-sm="4" size-lg="5">
-          <ion-card #secondCard class="second-card">
-            <ion-card-header>
-              <ion-card-title>Daily Fitness Digest: {{ dailyFitnessDigestName }} </ion-card-title>
-              <ion-card-subtitle>Take a break and read from our daily fitness digest blogs</ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              <img [src]="dailyFitnessDigestImage">
-            </ion-card-content>
-          
-            <ion-button fill="clear" (click)="readBlog(blog)">Read Now</ion-button>
-            <ion-item class="icons" lines="none">
-              <ion-label>
-                <ng-icon class="facebook" name="featherFacebook" (click)="shareApp('facebook')"></ng-icon>
-                <ng-icon class="instagram" name="featherInstagram" (click)="shareApp('instagram')"></ng-icon>
-                <ng-icon class="twitter" name="featherTwitter" (click)="shareApp('twitter')"></ng-icon>
-                <ng-icon class="youtube" name="featherYoutube" (click)="shareApp('youtube')"></ng-icon>
-                <ng-icon class="mail" name="featherMail" (click)="shareApp('mail')"></ng-icon>
-                <ng-icon class="link" name="featherLink" (click)="shareApp('link')"></ng-icon>
-              </ion-label>
-            </ion-item>
-          </ion-card></ion-col>
-  </ion-row>
+          <ion-card-content>
+            <img [src]="dailyFitnessDigestImage" />
+          </ion-card-content>
+
+          <ion-button fill="clear" (click)="readBlog(blog)"
+            >Read Now</ion-button
+          >
+          <ion-item class="icons" lines="none">
+            <ion-label>
+              <ng-icon
+                class="facebook"
+                name="featherFacebook"
+                (click)="shareApp('facebook')"
+              ></ng-icon>
+              <ng-icon
+                class="instagram"
+                name="featherInstagram"
+                (click)="shareApp('instagram')"
+              ></ng-icon>
+              <ng-icon
+                class="twitter"
+                name="featherTwitter"
+                (click)="shareApp('twitter')"
+              ></ng-icon>
+              <ng-icon
+                class="youtube"
+                name="featherYoutube"
+                (click)="shareApp('youtube')"
+              ></ng-icon>
+              <ng-icon
+                class="mail"
+                name="featherMail"
+                (click)="shareApp('mail')"
+              ></ng-icon>
+              <ng-icon
+                class="link"
+                name="featherLink"
+                (click)="shareApp('link')"
+              ></ng-icon>
+            </ion-label>
+          </ion-item> </ion-card
+      ></ion-col>
+    </ion-row>
   </ion-grid>
-  <div id="container">
-    
-   
-  </div>
+  <div id="container"></div>
 </ion-content>
