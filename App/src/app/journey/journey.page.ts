@@ -72,7 +72,7 @@ export class JourneyPage implements OnInit {
   ];
 
   finalStage: string[] = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum ligula ut ligula feugiat, nec ultrices mauris suscipit. Nulla posuere odio velit, quis eleifend dui venenatis quis."
+    "Thanks for listening!"
   ];
 
 

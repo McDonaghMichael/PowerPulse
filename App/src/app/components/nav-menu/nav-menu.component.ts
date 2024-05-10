@@ -32,7 +32,6 @@ export class NavMenuComponent implements OnInit {
 
   navigatePage(page: string): void {
     this.router.navigate([page]);
-
   }
 
   async shareApp(type: string) {
